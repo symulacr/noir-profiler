@@ -104,26 +104,28 @@ The sample code demonstrates:
 
 ## metrics
 
-| metric | description |
-|--------|-------------|
-| **constraints** | total constraints - directly impacts proving time |
-| **opcodes** | operations in acir representation |
-| **constraint amplification** | ratio of constraints to opcodes |
-| **public inputs** | number of public inputs |
-| **black box functions** | cryptographic operations |
+Example output from circuit analysis:
 
-## pushing to github
-
-```bash
-# Go to the clean repository
-cd ~/noir-circuit-profiler/github_clean
-
-# Add GitHub as remote using SSH
-git remote add origin git@github.com:symulacr/noir-circuit-profiler.git
-
-# Push to GitHub
-git push -u origin main
 ```
+[METRICS] Circuit Analysis: examples/circuits/mirror_zero.json
+╭───────────────────────────────────────────────────╮
+│ Metric   Value
+│ Total Constraints   0
+│ Total ACIR Opcodes  0
+│ Public Inputs       0
+│ Private Inputs      0
+│ Input/Output Count  0 in / 0 out
+│ Est. Proving Time   0.00ms
+│ │
+╰───────────────────────────────────────────────────╯
+```
+
+The tool analyzes:
+- **constraints**: total constraints - directly impacts proving time
+- **opcodes**: operations in acir representation
+- **constraint amplification**: ratio of constraints to opcodes
+- **public inputs**: number of public inputs
+- **black box functions**: cryptographic operations
 
 ## license
 
