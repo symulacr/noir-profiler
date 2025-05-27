@@ -38,7 +38,7 @@ cargo build --release
 
 ```bash
 # analyze circuit
-./np.sh analyze path/to/circuit.json
+./np.sh analyze examples/circuits/circuit.json
 
 # compare circuits
 ./np.sh compare circuit1.json circuit2.json
@@ -49,9 +49,6 @@ cargo build --release
 # collect statistics
 ./np.sh stats circuits_dir > stats_output.csv
 
-# calibrate cost model
-./np.sh calibrate directory/with/circuits
-
 # show help
 ./np.sh help
 ```
@@ -59,7 +56,7 @@ cargo build --release
 ## circuit analysis
 
 ```bash
-./np.sh analyze examples/circuits/circuit2.json
+./np.sh analyze examples/circuits/mirror_zero.json
 ```
 
 shows:
@@ -80,47 +77,30 @@ highlights:
 - black box function usage
 - overall efficiency
 
-## creating test circuits
+## example circuits
 
-1. create noir program
-2. compile with `nargo compile`
-3. analyze resulting acir file
+The repository includes reference circuits in `examples/circuits/` ready for analysis.
 
-### example noir program
-
-```rust
-fn main(x: Field, y: Field, hash_this: pub Field) -> pub Field {
-    // arithmetic operations
-    let sum = x + y;
-    let product = x * y;
-    
-    // control flow
-    let result = if sum > 10 {
-        sum * 2
-    } else {
-        product
-    };
-    
-    // hashing operation
-    let hash_result = std::hash::pedersen([hash_this]);
-    
-    // array operations
-    let mut array = [0; 5];
-    for i in 0..5 {
-        array[i] = result + i as Field;
-    }
-    
-    // output calculation
-    let output = array[0] + hash_result[0];
-    
-    output
-}
-```
-
-analyze with:
+To analyze:
 ```bash
-./np.sh analyze target/main.json
+./np.sh analyze examples/circuits/mirror_zero.json
 ```
+
+The `examples/sample.nr` file is a reference implementation that demonstrates various optimization approaches.
+
+## optimization techniques demonstrated
+
+The sample code demonstrates:
+
+- **field arithmetic optimization**: efficient use of basic operations
+- **unconstrained computation**: moving work off-circuit
+- **conditional logic minimization**: reducing branching
+- **lookup tables**: for expensive calculations
+- **cryptographic primitive comparison**: different hash functions
+- **static vs. dynamic access**: optimizing array usage
+- **witness size reduction**: combining values
+- **type conversion handling**: minimizing constraint overhead
+- **efficient bit operations**: for logic operations
 
 ## metrics
 
@@ -132,14 +112,18 @@ analyze with:
 | **public inputs** | number of public inputs |
 | **black box functions** | cryptographic operations |
 
-## optimization tips
+## pushing to github
 
-- use constants when possible
-- avoid unnecessary hash operations
-- reuse hash outputs
-- batch similar operations
-- consider lookup tables for repetitive operations
-- precompute values off-chain when possible
+```bash
+# Go to the clean repository
+cd ~/noir-circuit-profiler/github_clean
+
+# Add GitHub as remote using SSH
+git remote add origin git@github.com:symulacr/noir-circuit-profiler.git
+
+# Push to GitHub
+git push -u origin main
+```
 
 ## license
 

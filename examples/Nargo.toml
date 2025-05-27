@@ -1,7 +1,7 @@
 [package]
 name = "noir_profiler_examples"
 version = "0.1.0"
-authors = ["Noir Profiler Team"]
+authors = ["symulacr"]
 compiler_version = "0.19.3"
 
 [dependencies] 

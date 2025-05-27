@@ -1,5 +1,5 @@
 // comprehensive noir profiler demo
-// demonstrates circuit optimization techniques and features
+// demonstrates circuit optimization techniques
 
 // unconstrained function - used for preprocessing
 unconstrained fn precompute(value: Field) -> Field {
@@ -7,14 +7,13 @@ unconstrained fn precompute(value: Field) -> Field {
 }
 
 // constant values - zero constraint cost
-const LOOKUP_TABLE: [Field; 5] = [0, 1, 4, 9, 16]; // precomputed squares
+global LOOKUP_TABLE: [Field; 5] = [0, 1, 4, 9, 16]; // precomputed squares
 
 fn main(
     x: Field, 
     y: Field, 
     selector: Field, 
-    hash_input: pub Field,
-    array_len: Field
+    hash_input: pub Field
 ) -> pub [Field; 3] {
     // field arithmetic - efficient base operations
     let sum = x + y;       // cheap operation
@@ -36,7 +35,6 @@ fn main(
     let hash_mimc = std::hash::mimc_bn254([hash_input, result]); // different cost profile
     
     // array access optimizations
-    
     // static array - lower cost, fixed size
     let mut static_array = [0; 5];
     for i in 0..5 {
