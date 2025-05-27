@@ -88,8 +88,23 @@ To analyze:
 
 The `examples/sample.nr` file is a reference implementation that demonstrates various optimization approaches.
 
+## optimization techniques
+
+- **field arithmetic optimization**: efficient use of basic operations
+- **unconstrained computation**: moving work off-circuit
+- **conditional logic minimization**: reducing branching
+- **lookup tables**: for expensive calculations
+- **cryptographic primitive comparison**: different hash functions
+- **static vs. dynamic access**: optimizing array usage
+- **witness size reduction**: combining values
+- **type conversion handling**: minimizing constraint overhead
+- **efficient bit operations**: for logic operations
+
 ## metrics
 
+Example analysis output:
+
+```
 [METRICS] Circuit Analysis: examples/circuits/mirror_zero.json
 ╭───────────────────────────────────╮
 │ Metric   Value                    │
@@ -100,5 +115,8 @@ The `examples/sample.nr` file is a reference implementation that demonstrates va
 │ Input/Output Count  0 in / 0 out  │
 │ Est. Proving Time   0.00ms        │
 ╰───────────────────────────────────╯
+```
 
-## mit license
+## license
+
+MIT License - See LICENSE file for details
