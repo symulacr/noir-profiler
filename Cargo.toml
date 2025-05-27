@@ -4,8 +4,8 @@ members = ["."]
 [package]
 name = "noir-circuit-profiler"
 version = "1.0.0"
-edition = "2021"
-authors = ["eya@proton.me"]
+edition = " "
+authors = ["n0blc@proton.me"]
 description = "Circuit analysis tool for Noir - experimental demo version"
 license = "MIT"
 

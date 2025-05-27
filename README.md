@@ -88,45 +88,17 @@ To analyze:
 
 The `examples/sample.nr` file is a reference implementation that demonstrates various optimization approaches.
 
-## optimization techniques demonstrated
-
-The sample code demonstrates:
-
-- **field arithmetic optimization**: efficient use of basic operations
-- **unconstrained computation**: moving work off-circuit
-- **conditional logic minimization**: reducing branching
-- **lookup tables**: for expensive calculations
-- **cryptographic primitive comparison**: different hash functions
-- **static vs. dynamic access**: optimizing array usage
-- **witness size reduction**: combining values
-- **type conversion handling**: minimizing constraint overhead
-- **efficient bit operations**: for logic operations
-
 ## metrics
 
-Example output from circuit analysis:
-
-```
 [METRICS] Circuit Analysis: examples/circuits/mirror_zero.json
-╭───────────────────────────────────────────────────╮
-│ Metric   Value
-│ Total Constraints   0
-│ Total ACIR Opcodes  0
-│ Public Inputs       0
-│ Private Inputs      0
-│ Input/Output Count  0 in / 0 out
-│ Est. Proving Time   0.00ms
-│ │
-╰───────────────────────────────────────────────────╯
-```
+╭───────────────────────────────────╮
+│ Metric   Value                    │
+│ Total Constraints   0             │
+│ Total ACIR Opcodes  0             │
+│ Public Inputs       0             │
+│ Private Inputs      0             │
+│ Input/Output Count  0 in / 0 out  │
+│ Est. Proving Time   0.00ms        │
+╰───────────────────────────────────╯
 
-The tool analyzes:
-- **constraints**: total constraints - directly impacts proving time
-- **opcodes**: operations in acir representation
-- **constraint amplification**: ratio of constraints to opcodes
-- **public inputs**: number of public inputs
-- **black box functions**: cryptographic operations
-
-## license
-
-mit license - see license file for details
+## mit license
