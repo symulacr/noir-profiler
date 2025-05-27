@@ -1,0 +1,30 @@
+[workspace]
+members = ["."]
+
+[package]
+name = "noir-circuit-profiler"
+version = "1.0.0"
+edition = "2021"
+authors = ["eya@proton.me"]
+description = "Circuit analysis tool for Noir - experimental demo version"
+license = "MIT"
+
+[dependencies]
+anyhow = "1.0"
+colored = "2.0"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+walkdir = "2.3"
+tabular = "0.2"
+clap = { version = "4.4", features = ["derive"] }
+rand = "0.8.5"
+chrono = "0.4"
+lazy_static = "1.4"
+
+[lib]
+name = "noir_circuit_profiler"
+path = "src/lib.rs"
+
+[[bin]]
+name = "noir-circuit-profiler"
+path = "src/main.rs"

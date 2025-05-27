@@ -1,0 +1,27 @@
+{
+  "opcodes": [
+    {
+      "type": "AssertZero",
+      "expression": {
+        "terms": [
+          { "coefficient": "1", "variable": "x" },
+          { "coefficient": "1", "variable": "y" },
+          { "coefficient": "-1", "variable": "sum" }
+        ],
+        "constant": "0"
+      }
+    },
+    {
+      "type": "AssertZero",
+      "expression": {
+        "terms": [
+          { "coefficient": "1", "variable": "sum" },
+          { "coefficient": "-1", "variable": "output" }
+        ],
+        "constant": "0"
+      }
+    }
+  ],
+  "public_inputs": ["x", "y"],
+  "return_values": ["output"]
+}

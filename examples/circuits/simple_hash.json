@@ -1,0 +1,26 @@
+{
+  "opcodes": [
+    {
+      "type": "BlackBoxFunction",
+      "function": "keccak256",
+      "inputs": [
+        { "variable": "input" }
+      ],
+      "outputs": [
+        { "variable": "hash_result" }
+      ]
+    },
+    {
+      "type": "AssertZero",
+      "expression": {
+        "terms": [
+          { "coefficient": "1", "variable": "hash_result" },
+          { "coefficient": "-1", "variable": "output" }
+        ],
+        "constant": "0"
+      }
+    }
+  ],
+  "public_inputs": ["input"],
+  "return_values": ["output"]
+}

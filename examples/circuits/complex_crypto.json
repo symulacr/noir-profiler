@@ -1,0 +1,58 @@
+{
+  "opcodes": [
+    {
+      "type": "BlackBoxFunction",
+      "function": "sha256",
+      "inputs": [
+        { "variable": "input1" }
+      ],
+      "outputs": [
+        { "variable": "hash_result1" }
+      ]
+    },
+    {
+      "type": "BlackBoxFunction",
+      "function": "pedersen_hash",
+      "inputs": [
+        { "variable": "input2" }
+      ],
+      "outputs": [
+        { "variable": "hash_result2" }
+      ]
+    },
+    {
+      "type": "BlackBoxFunction",
+      "function": "ecdsa_secp256k1",
+      "inputs": [
+        { "variable": "message" },
+        { "variable": "signature" }
+      ],
+      "outputs": [
+        { "variable": "verification" }
+      ]
+    },
+    {
+      "type": "AssertZero",
+      "expression": {
+        "terms": [
+          { "coefficient": "1", "variable": "hash_result1" },
+          { "coefficient": "1", "variable": "hash_result2" },
+          { "coefficient": "-1", "variable": "output" }
+        ],
+        "constant": "0"
+      }
+    },
+    {
+      "type": "AssertZero",
+      "expression": {
+        "terms": [
+          { "coefficient": "1", "variable": "verification" },
+          { "coefficient": "1", "variable": "constant_one" }
+        ],
+        "constant": "0"
+      }
+    }
+  ],
+  "public_inputs": ["input1", "input2", "message", "signature"],
+  "return_values": ["output"]
+}

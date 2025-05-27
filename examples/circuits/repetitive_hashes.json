@@ -1,0 +1,59 @@
+{
+  "opcodes": [
+    {
+      "type": "BlackBoxFunction",
+      "function": "keccak256",
+      "inputs": [
+        { "variable": "input1" }
+      ],
+      "outputs": [
+        { "variable": "hash_result1" }
+      ]
+    },
+    {
+      "type": "BlackBoxFunction",
+      "function": "keccak256",
+      "inputs": [
+        { "variable": "input2" }
+      ],
+      "outputs": [
+        { "variable": "hash_result2" }
+      ]
+    },
+    {
+      "type": "BlackBoxFunction",
+      "function": "keccak256",
+      "inputs": [
+        { "variable": "input3" }
+      ],
+      "outputs": [
+        { "variable": "hash_result3" }
+      ]
+    },
+    {
+      "type": "AssertZero",
+      "expression": {
+        "terms": [
+          { "coefficient": "1", "variable": "hash_result1" },
+          { "coefficient": "1", "variable": "hash_result2" },
+          { "coefficient": "1", "variable": "hash_result3" },
+          { "coefficient": "-1", "variable": "output" }
+        ],
+        "constant": "0"
+      }
+    },
+    {
+      "type": "AssertZero",
+      "expression": {
+        "terms": [
+          { "coefficient": "1", "variable": "input1" },
+          { "coefficient": "1", "variable": "input2" },
+          { "coefficient": "1", "variable": "input3" }
+        ],
+        "constant": "0"
+      }
+    }
+  ],
+  "public_inputs": ["input1", "input2", "input3"],
+  "return_values": ["output"]
+}

@@ -1,0 +1,25 @@
+{
+  "opcodes": [
+    {
+      "type": "AssertZero",
+      "expression": {
+        "terms": [
+          { "coefficient": "1", "variable": "x1" },
+          { "coefficient": "1", "variable": "x2" }
+        ],
+        "constant": "0"
+      }
+    },
+    {
+      "type": "AssertZero",
+      "expression": {
+        "terms": [
+          { "coefficient": "2", "variable": "x3" }
+        ],
+        "constant": "0"
+      }
+    }
+  ],
+  "public_inputs": ["x1"],
+  "return_values": ["x2"]
+} 
